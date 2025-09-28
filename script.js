@@ -1,5 +1,35 @@
 function minDate(dates) {
   //write you code here
+	const minDate = (dates) => {
+    if (!dates || dates.length === 0) {
+        return null;
+    }
+
+    const earliestDate = dates.reduce((min, current) => {
+        return current < min ? current : min;
+    });
+
+    return earliestDate;
+};
+
+console.log("--- Example 1 ---");
+const dates1 = ["2023/03/01", "2023/03/02", "2023/03/03"];
+const result1 = minDate(dates1);
+console.log(`Input: ${JSON.stringify(dates1)}`);
+console.log(`Output: ${result1}`);
+
+console.log("\n--- Example 2 ---");
+const dates2 = ["2023/01/01", "2023/02/02", "2022/12/31"];
+const result2 = minDate(dates2);
+console.log(`Input: ${JSON.stringify(dates2)}`);
+console.log(`Output: ${result2}`);
+
+console.log("\n--- Example 3 (Different Months/Years) ---");
+const dates3 = ["2025/07/15", "2025/01/15", "2024/12/31", "2025/02/01"];
+const result3 = minDate(dates3);
+console.log(`Input: ${JSON.stringify(dates3)}`);
+console.log(`Output: ${result3}`);
+
 }
 
 // Do not change the code
